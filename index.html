@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Class presentation hub for Management Information System lessons." />
+  <title>Class Presentation Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #071426;
+      --bg-2: #0d2a52;
+      --card: rgba(12, 35, 68, 0.86);
+      --card-hover: rgba(18, 53, 101, 0.96);
+      --text: #f8fbff;
+      --muted: #b8c8dd;
+      --accent: #4da3ff;
+      --accent-2: #78c8ff;
+      --border: rgba(126, 190, 255, 0.22);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(77, 163, 255, .22), transparent 32%),
+        radial-gradient(circle at 88% 8%, rgba(120, 200, 255, .16), transparent 28%),
+        linear-gradient(145deg, var(--bg-1), var(--bg-2));
+    }
+
+    .page-shell { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+
+    header {
+      min-height: 44vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 44px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent-2);
+      background: rgba(5, 18, 37, .45);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.7;
+    }
+
+    main { padding: 12px 0 90px; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 22px;
+    }
+
+    .lesson-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(145deg, var(--card), rgba(7, 22, 43, .92));
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .22);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .lesson-card::after {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -70px;
+      bottom: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(77, 163, 255, .28), transparent 68%);
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(126, 190, 255, .55);
+      background: linear-gradient(145deg, var(--card-hover), rgba(7, 22, 43, .98));
+    }
+
+    .lesson-meta {
+      color: var(--accent-2);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .lesson-card h3 {
+      margin: 20px 0 14px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 31px;
+      line-height: 1.12;
+    }
+
+    .lesson-card p { color: var(--muted); line-height: 1.65; }
+
+    .open-button {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: fit-content;
+      margin-top: 30px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      color: #061426;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      text-decoration: none;
+      font-weight: 800;
+      transition: filter .2s ease, transform .2s ease;
+    }
+
+    .open-button:hover { filter: brightness(1.08); transform: translateX(3px); }
+
+    .notice {
+      margin-top: 26px;
+      padding: 20px 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(5, 18, 37, .45);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    footer {
+      padding: 26px 0 38px;
+      color: rgba(184, 200, 221, .72);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      header { min-height: auto; padding-top: 52px; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .lesson-card { min-height: 310px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="page-shell">
+      <span class="badge">BA9226 · Management Information System</span>
+      <h1>Class Presentation Hub</h1>
+      <p class="intro">Open each lesson directly in your browser. Use the arrow keys, spacebar, mouse wheel, or swipe to move through the presentation.</p>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="section-heading">
+      <div>
+        <h2>Available Lessons</h2>
+        <p>Select a session to begin.</p>
+      </div>
+    </div>
+
+    <section class="lesson-grid" aria-label="Lesson list">
+      <article class="lesson-card">
+        <div>
+          <div class="lesson-meta">Week 2 · Session 1</div>
+          <h3>Information Systems: Evolution &amp; Types</h3>
+          <p>Learn how information systems evolved and how TPS, MIS, DSS, ESS, and functional information systems support organizations.</p>
+        </div>
+        <a class="open-button" href="week2-session1-information-systems.html">Open Lesson <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
+
+    <div class="notice">
+      <strong>Student reminder:</strong> Read every slide carefully and complete the activities and quizzes independently. Teacher scripts and answer keys are not included in this student version.
+    </div>
+  </main>
+
+  <footer class="page-shell">Class Presentation Hub · Powered by GitHub Pages</footer>
+</body>
+</html>
