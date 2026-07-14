@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 2 Session 1 - Information Systems: Evolution & Types</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap"><style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fafafa}body{font-family:"Space Grotesk",sans-serif}.deck{width:100%;height:100%;position:relative}.slide{position:absolute!important;inset:0;width:1920px!important;height:1080px!important;transform-origin:top left;display:none!important}.slide.active{display:flex!important}.deck-controls{position:fixed;right:18px;bottom:18px;z-index:10000;display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(15,23,42,.86);color:#fff;font:600 13px "Space Grotesk",sans-serif;backdrop-filter:blur(10px)}.deck-controls button{border:0;border-radius:50%;width:34px;height:34px;background:#2563eb;color:#fff;font-size:18px;cursor:pointer}.deck-controls button:hover{background:#1d4ed8}.slide-counter{min-width:58px;text-align:center}@media(max-width:760px){.deck-controls{right:10px;bottom:10px}.student-home-link{display:none!important}}
+
+    :root {
+      --background: #fafafa;
+      --foreground: #1a1a1a;
+      --accent: #FF5722;
+      --accent-foreground: #ffffff;
+      --muted: #f3f3f3;
+      --muted-foreground: #666;
+      --border: rgba(26,26,26,0.1);
+      --font-display: 'Archivo Black', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --bg-gradient: linear-gradient(135deg, #fafafa 0%, #efefef 50%, #fafafa 100%);
+      --nav-dot-active-color: var(--accent);
+    }
+    body { font-family: var(--font-body); }
+    h1,h2,h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+    .slide { padding: 80px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    .section-number { font-family: var(--font-display); font-size: 180px; color: rgba(255,87,34,0.08); position: absolute; top: 40px; right: 80px; line-height: 1; }
+    .eyebrow { font-size: 22px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+    .breadcrumb { position: absolute; top: 40px; left: 80px; font-size: 18px; color: #888; font-weight: 600; }
+    .breadcrumb .active { color: var(--accent); }
+    .slide h1 { font-size: 100px; line-height: 1.04; }
+    .slide h2 { font-size: 56px; line-height: 1.08; margin-bottom: 16px; }
+    .slide h3 { font-size: 38px; line-height: 1.18; }
+    .slide p { font-size: 30px; line-height: 1.5; color: var(--muted-foreground); max-width: 920px; }
+    .slide li { font-size: 28px; line-height: 1.55; color: #444; }
+    .slide ul { list-style: none; padding: 0; margin: 0; }
+    .slide ul li::before { content: '▸ '; color: var(--accent); font-weight: 700; }
+    .accent-card { background: var(--accent); color: #fff; border-radius: 24px; padding: 44px; }
+    .accent-card h2,.accent-card h3,.accent-card p,.accent-card li { color: #fff; }
+    .accent-card ul li::before { color: rgba(255,255,255,0.6); }
+    .dark-card { background: #1a1a1a; color: #fff; border-radius: 24px; padding: 42px; }
+    .dark-card h3,.dark-card p,.dark-card li { color: #fff; }
+    .dark-card ul li::before { color: rgba(255,255,255,0.6); }
+    .info-card { background: var(--muted); border-radius: 18px; padding: 32px; }
+    .info-card p { font-size: 24px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .scenario-box { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border-left: 6px solid var(--accent); border-radius: 14px; padding: 32px; }
+    .scenario-label { font-size: 19px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .highlight { color: var(--accent); font-weight: 700; }
+    .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 16px; overflow: hidden; margin-top: 18px; }
+    .comparison-table th { background: var(--accent); color: #fff; padding: 16px 20px; font-size: 22px; text-align: left; }
+    .comparison-table td { background: #fff; padding: 16px 20px; font-size: 21px; border-bottom: 1px solid var(--border); }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .timeline { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+    .timeline-item { display: flex; align-items: center; gap: 20px; padding: 18px 24px; border-radius: 14px; background: #fff; border-left: 5px solid var(--accent); }
+    .timeline-year { font-family: var(--font-display); font-size: 28px; color: var(--accent); min-width: 100px; }
+    .timeline-text { font-size: 24px; color: #333; }
+    .pyramid { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px; }
+    .pyramid-level { display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 14px; padding: 20px; color: #fff; font-weight: 700; font-size: 24px; }
+    .diagram-row { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+    .diagram-box { padding: 24px 20px; border-radius: 16px; text-align: center; color: #fff; font-size: 22px; font-weight: 700; min-width: 180px; }
+    .arrow { font-size: 34px; color: var(--accent); }
+.student-home-link{position:fixed;top:14px;right:16px;z-index:9999;padding:9px 14px;border-radius:999px;text-decoration:none;background:rgba(15,23,42,.88);color:#fff;font-family:var(--font-body,system-ui,sans-serif);font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(15,23,42,.18);backdrop-filter:blur(10px)}.student-home-link:hover{background:#2563eb}@media(max-width:900px),(max-height:560px){.student-home-link{display:none}}
+</style></head><body><a class="student-home-link" href="index.html">Back to Lessons</a><main class="deck"></main><div class="deck-controls"><button class="prev" aria-label="Previous slide">←</button><span class="slide-counter"></span><button class="next" aria-label="Next slide">→</button></div><script>window.lessonParts=[];</script><script src="lesson-assets/part-01.js"></script><script src="lesson-assets/part-02.js"></script><script src="lesson-assets/part-03.js"></script><script src="lesson-assets/part-04.js"></script><script src="lesson-assets/part-05.js"></script><script>(()=>{const host=document.querySelector('.deck');host.innerHTML=(window.lessonParts||[]).join('');const slides=[...host.querySelectorAll('.slide')];let i=0,locked=false;function scale(){const s=Math.min(innerWidth/1920,innerHeight/1080),x=(innerWidth-1920*s)/2,y=(innerHeight-1080*s)/2;slides.forEach(el=>el.style.transform=`translate(${x/s}px,${y/s}px) scale(${s})`)}function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));document.querySelector('.slide-counter').textContent=`${i+1} / ${slides.length}`;history.replaceState(null,'',`#slide-${i+1}`)}function next(){show(i+1)}function prev(){show(i-1)}document.querySelector('.next').onclick=next;document.querySelector('.prev').onclick=prev;addEventListener('resize',scale);addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();next()}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();prev()}else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);else if((e.key==='f'||e.key==='F')&&!document.fullscreenElement)document.documentElement.requestFullscreen?.()});addEventListener('wheel',e=>{e.preventDefault();if(locked)return;locked=true;(e.deltaY||e.deltaX)>0?next():prev();setTimeout(()=>locked=false,450)},{passive:false});let sx=0;addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>55)(dx<0?next:prev)()},{passive:true});const h=Number(location.hash.replace('#slide-',''))-1;show(Number.isFinite(h)&&h>=0?h:0);scale()})();</script></body></html>
